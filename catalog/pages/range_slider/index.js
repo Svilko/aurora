@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 
 import { Container, Row, Column } from "../../../src/components/Grid";
 import Spacing from "../../../src/components/Spacing";
-import { RangeSlider } from "../../../src/components/RangeSlider";
+import RangeSlider from "../../../src/components/RangeSlider";
 
 export default {
   path: "/range",
