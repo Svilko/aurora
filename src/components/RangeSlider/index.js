@@ -8,12 +8,11 @@ const RangeSliderContainer = styled.div`
   width: ${({ width }) => width};
   position: relative;
   display: flex;
-  align-items: center;
-  text-align: center;
-  background-color: ${themes.global.gray04};
+  height: 24px;
 
   input[type="range"] {
     position: absolute;
+    top: 0;
 
     &:nth-child(2) {
       background: none;
@@ -27,6 +26,7 @@ const Slider = styled.div`
   height: 4px;
   left: 24px;
   right: 24px;
+  top: 10px;
 `;
 
 const SliderHandle = styled.input.attrs({
@@ -45,6 +45,7 @@ const SliderHandle = styled.input.attrs({
   overflow: hidden;
   border: 0;
   outline: none;
+  height: 24px;
 
   
 
@@ -52,11 +53,12 @@ const SliderHandle = styled.input.attrs({
     height: 24px;
     width: 24px;
     border-radius: 24px;
+    box-sizing: border-box;
     background-color: #fff;
     position: relative;
     cursor: pointer;
     appearance: none;
-    pointer-events: all;
+    pointer-events: auto !important;
     border: 1px solid ${themes.global.gray03};
 
     &::before {
@@ -68,11 +70,82 @@ const SliderHandle = styled.input.attrs({
       width: 2000px;
       height: 4px;
     }
+  }
 
-    &:focus {
+
+
+  &::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    pointer-events: auto !important;
+    border: 1px solid ${themes.global.gray03};
+
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 100%;
+      width: 2000px;
+      height: 4px;
+    }
+  }
+
+
+  &::-moz-range-track {
+    background: transparent;
+  }
+  
+  &::-ms-track {
+    background: transparent;
+  }
+  
+  &::-ms-fill-lower,
+  &::-ms-fill-upper {
+    background: transparent;
+  }
+  
+  &::-ms-thumb {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    pointer-events: auto !important;
+    border: 1px solid ${themes.global.gray03};
+    
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 100%;
+      width: 2000px;
+      height: 4px;
+    }
+  }
+  
+  &::-webkit-slider-thumb:focus{
     outline: none;
   }
+  
+  &::-moz-range-thumb:focus {
+    outline: none;
   }
+
+  &::-ms-thumb:focus {
+    outline: none;
+  }
+
   /* width: 24px;
   height: 24px;
   border-radius: 12px;
